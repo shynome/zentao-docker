@@ -4,6 +4,7 @@
 
 if [ "`ls -A /app/zentaopms`" = "" ]; then
   cp -a /var/www/zentaopms/* /app/zentaopms
+  touch /app/zentaopms/www/ok.txt
 fi
 
 if [ "`cat /app/zentaopms/VERSION`" != "`cat /var/www/zentaopms/VERSION`" ]; then

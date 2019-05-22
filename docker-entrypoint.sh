@@ -17,4 +17,4 @@ chmod 777 /app/zentaopms/www
 chmod 777 /app/zentaopms/config
 chmod -R a+rx /app/zentaopms/bin/*
 
-exec /etc/init.d/apache2 -D FOREGROUND
+exec apache2ctl -D FOREGROUND

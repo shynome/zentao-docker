@@ -11,7 +11,9 @@ FROM Base
 LABEL ZENTAO_VERSION="11.5.stable"
 
 ADD zentao.tar.gz /var/www/zentaopms
+COPY docker-entrypoint.sh /app/docker-entrypoint.sh
 RUN  mkdir -p /app/zentaopms \
+  && chmod +x /app/docker-entrypoint.sh \
   && a2enmod rewrite \
   && rm -rf /etc/apache2/sites-enabled/000-default.conf \
   && sed -i '1i ServerName 127.0.0.1' /etc/apache2/apache2.conf \
@@ -23,5 +25,4 @@ COPY config/00-ioncube.ini /etc/php/7.0/apache2/conf.d/
 COPY config/00-ioncube.ini /etc/php/7.0/cli/conf.d/
 
 VOLUME /app/zentaopms
-COPY docker-entrypoint.sh /app
 ENTRYPOINT ["/app/docker-entrypoint.sh"]

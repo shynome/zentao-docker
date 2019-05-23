@@ -7,7 +7,6 @@ ENV LANG="en_US.UTF8"
 ENV MYSQL_ROOT_PASSWORD="123456"
 RUN echo -e "LANG=\"en_US.UTF-8\"\nLANGUAGE=\"en_US:en\"" > /etc/default/locale && locale-gen en_US.UTF-8
 
-FROM Base
 LABEL ZENTAO_VERSION="11.5.stable"
 
 ADD zentao.tar.gz /var/www/zentaopms
